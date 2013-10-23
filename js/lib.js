@@ -4,26 +4,24 @@ function getEl(arg) {
 		foundElemets = [],
 		tmpFoundElemets = [],
 		collection,
-		splitedCollection = [],
 		i, j, k;
 
 	foundElemets = prefind(argArray[0]);
 
-	for (i = 1; i < argArray.length; i ++) {
+	for (i = 1; i < argArray.length; i++) {
 		for (j = 0; j < foundElemets.length; j++) {
 			collection = prefind(argArray[i], foundElemets[j]);
-			for (k = 0; k < collection.length;  k++) {
+			for (k = 0; k < collection.length; k++) {
 				tmpFoundElemets.push(collection[k]);
 			}
 		}
 		foundElemets = tmpFoundElemets;
 		tmpFoundElemets = [];
-	};
-
+	}
 
 	return foundElemets;
 
-	function find (selector, whereFind) {
+	function find(selector, whereFind) {
 		var s = selector;
 
 		whereFind = typeof whereFind === 'undefined' ? document : whereFind;
@@ -37,10 +35,10 @@ function getEl(arg) {
 		}
 	}
 
-	function prefind (selector, whereFind) {
+	function prefind(selector, whereFind) {
 		var resultArray = [];
 
-		while(selector != '') {
+		while (selector != '') {
 			var tmp = findSelectorIdent(selector);
 			resultArray.push(tmp);
 			selector = selector.substring(tmp.length);
@@ -59,16 +57,16 @@ function getEl(arg) {
 		return elements;
 	}
 
-	function getElementsWIthSelector (arrayElement, elements) {
+	function getElementsWIthSelector(arrayElement, elements) {
 		var tmp = elements,
-		result = [];
+			result = [];
 		for (var i = 0; i < elements.length; i++) {
 			if (arrayElement[0] === '#') {
-				if (hasId(arrayElement.substring(1,arrayElement.length), elements[i]) !== -1) {
+				if (hasId(arrayElement.substring(1, arrayElement.length), elements[i]) !== -1) {
 					result.push(tmp[i]);
 				}
 			} else if (arrayElement[0] === '.') {
-				if (hasClass(arrayElement.substring(1,arrayElement.length), elements[i]) !== -1) {
+				if (hasClass(arrayElement.substring(1, arrayElement.length), elements[i]) !== -1) {
 					result.push(tmp[i]);
 				}
 			} else {
@@ -81,17 +79,17 @@ function getEl(arg) {
 		return result;
 	}
 
-	function hasClass (cl, element) {
+	function hasClass(cl, element) {
 		var tmp = ' ' + element.className + ' ';
 		return tmp.indexOf(' ' + cl + ' ');
 	}
 
-	function hasId (id, element) {
+	function hasId(id, element) {
 		var tmp = ' ' + element.id + ' ';
 		return tmp.indexOf(' ' + id + ' ');
 	}
 
-	function parseSelector (selector) {
+	function parseSelector(selector) {
 		var idSelector = findSelectorIdent(selector, '#'),
 			classSelector = findSelectorIdent(selector, '.');
 
@@ -104,7 +102,7 @@ function getEl(arg) {
 		}
 	}
 
-	function findSelectorIdent (selector) {
+	function findSelectorIdent(selector) {
 		var idIndex = selector.substring(1, selector.length).indexOf('#') + 1;
 		var classIndex = selector.substring(1, selector.length).indexOf('.') + 1;
 
