@@ -7,9 +7,7 @@
 <script src='./js/jQuery.js'></script>
 <script src='./js/main.js'></script>
 <style type="text/css">
-	* {
-		background: red;
-	}
+
 </style>
 
 
@@ -159,6 +157,7 @@ This guide will walk you through the basics and explain a little bit about how e
 <script type="text/javascript" src="./js/jQuery.js"></script>
 <script type="text/javascript" src="./js/lib.js"></script>
 <script type="text/javascript" src="./js/temp.js"></script>
+<script type="text/javascript" src="./js/tooltip.js"></script>
 
 <script>
 	$( function () {
@@ -178,8 +177,10 @@ This guide will walk you through the basics and explain a little bit about how e
 
 		//bubbleSotring ([5,3,78,9,3,2,6,78], bubbleIntCallback);
 	
-		var style = $("strong").getStyleObject();
-		$('strong').css(style);
+		// var style = $("strong").getStyleObject();
+		// $('strong').css(style);
+		// 
+		$('p').tooltip();
 	});
 </script>
 
