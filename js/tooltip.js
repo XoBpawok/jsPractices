@@ -21,7 +21,7 @@
 		}
 	}
 
-	function _createtooltipObj (options) {
+	function _createTooltipObj (options) {
 
 		var tooltip = $('<div>', {
 			'class': options.contentClassName,
@@ -38,7 +38,7 @@
 	}
 
 	function _onOpen (options) {
-		$(this).off('click');
+		$(this).off(options.event);
 		$(this).on('mouseleave', this,	function () {
 			$('.' + options.contentClassName, this).css('display', 'none');
 			_onClose.call(this, options);
@@ -48,7 +48,7 @@
 
 	function _onClose (options) {
 		$(this).off('mouseleave');
-		$(this).on('click', this,	function () {
+		$(this).on(options.event, this,	function () {
 			$('.' + options.contentClassName, this).css('display', 'block');
 			_onOpen.call(this, options);
 		})
@@ -70,7 +70,7 @@
 				tooltipObj.css('left', '100%');
 				break;
 			default:
-				console.log('Error. Wrong position paramenter.')
+				console.log('Error. Wrong position parameter.')
 		}
 	}
 
