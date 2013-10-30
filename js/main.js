@@ -1,4 +1,4 @@
-function Pi (n) {
+/*function Pi (n) {
 	var i, pi;
 	if (n <= 20) {
 		pi = 0;
@@ -164,3 +164,8 @@ function bubbleIntCallback (a,b) {
 	}
 }
 
+*/
+
+require(['jquery','tooltip'], function() {
+	$('p').tooltip();
+});
